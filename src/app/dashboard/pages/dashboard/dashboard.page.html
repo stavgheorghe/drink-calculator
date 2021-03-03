@@ -1,7 +1,7 @@
 <ion-header>
   <div class="user-name">{{userName}}</div>
-  <ion-fab class="settings" vertical="top" horizontal="end">
-    <ion-fab-button [ngClass]="{'fab-button-close-active': areSettingsShown}" (click)="toggleSettings()">
+  <ion-fab class="settings" vertical="top" horizontal="end" (click)="showSettings()">
+    <ion-fab-button [ngClass]="{'fab-button-close-active': areSettingsShown}">
       <ion-icon name="settings"></ion-icon>
     </ion-fab-button>
     <ion-fab-list *ngIf="areSettingsShown" side="bottom">
@@ -11,7 +11,7 @@
         </div>
       </div>
     </ion-fab-list>
-    <ion-backdrop *ngIf="areSettingsShown" class="account-actions-overlay" (ionBackdropTap)="hideSettings()"></ion-backdrop>
+    <ion-backdrop *ngIf="areSettingsShown" class="backdrop-overlay" (ionBackdropTap)="hideSettings()"></ion-backdrop>
   </ion-fab>
 </ion-header>
 

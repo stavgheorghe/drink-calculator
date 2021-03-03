@@ -9,6 +9,7 @@ import { SharedModule } from '../shared';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardPage } from './pages';
 import { SessionResultItemComponent, SessionResultListComponent } from './components';
+import { SessionResultsService } from './services';
 
 
 @NgModule({
@@ -23,6 +24,9 @@ import { SessionResultItemComponent, SessionResultListComponent } from './compon
     DashboardPage,
     SessionResultItemComponent,
     SessionResultListComponent,
+  ],
+  providers: [
+    SessionResultsService,
   ]
 })
 export class DashboardModule {}

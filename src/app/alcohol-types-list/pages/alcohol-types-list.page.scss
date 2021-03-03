@@ -1,0 +1,25 @@
+
+.item-wrap {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+
+  .item {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    margin: 10px;
+
+    span {
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

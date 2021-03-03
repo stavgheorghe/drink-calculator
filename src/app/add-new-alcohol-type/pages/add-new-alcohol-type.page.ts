@@ -1,13 +1,16 @@
 import { ActivatedRoute } from '@angular/router';
-import { BaseComponent, idGenerator, NavControllerExtendedService } from 'app/core';
 import { Component } from '@angular/core';
-import { FORM_CONTROL_REGEX_PATTERNS } from 'app/core/types';
+import { from } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavController } from '@ionic/angular';
 import { takeUntil } from 'rxjs/operators';
-import {from} from "rxjs";
-import {NativeStorage} from "@ionic-native/native-storage/ngx";
+
+
+import { NavController } from '@ionic/angular';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
+import { BaseComponent, idGenerator, NavControllerExtendedService } from 'app/core';
 import { DrinkItem } from 'app/structures';
+import { FORM_CONTROL_REGEX_PATTERNS } from 'app/core/types';
 
 
 @Component({
@@ -19,6 +22,8 @@ export class AddNewAlcoholTypePage extends BaseComponent {
 
   formGroup: FormGroup;
   selectedIcon: any;
+  alcoholList: Array<any>;
+
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
@@ -34,7 +39,13 @@ export class AddNewAlcoholTypePage extends BaseComponent {
       volumeType: [undefined, [Validators.required]],
       strength: [undefined, [Validators.required, Validators.pattern(FORM_CONTROL_REGEX_PATTERNS.numbersOnly)]],
     });
+    this.alcoholList = [];
     this.detectNewIconChanges();
+    from(this.nativeStorage.getItem('alcoholList'))
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe((value) => {
+        this.alcoholList = JSON.parse(value);
+      });
   }
 
   addNewIcon() {
@@ -52,14 +63,18 @@ export class AddNewAlcoholTypePage extends BaseComponent {
       strength: this.formGroup.get('strength')?.value,
     };
 
-    from(this.nativeStorage.getItem('drinkList')).subscribe((value: string) => {
-      const list: Array<DrinkItem> = JSON.parse(value) || [];
-      list.push(newTypeData);
-      this.nativeStorage.setItem('drinkList' , JSON.stringify(list));
-    }, () => {
-      const list: Array<DrinkItem> = [newTypeData];
-      this.nativeStorage.setItem('drinkList' , JSON.stringify(list));
-    });
+    from(this.nativeStorage.getItem('drinkList'))
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe((value: string) => {
+        const list: Array<DrinkItem> = JSON.parse(value) || [];
+        list.push(newTypeData);
+        this.nativeStorage.setItem('drinkList' , JSON.stringify(list));
+        this.navController.navigateRoot('/dashboard');
+      }, () => {
+        const list: Array<DrinkItem> = [newTypeData];
+        this.nativeStorage.setItem('drinkList' , JSON.stringify(list));
+        this.navController.navigateRoot('/dashboard');
+      });
   }
 
   private detectNewIconChanges() {

@@ -25,7 +25,8 @@ const routes: Routes = [
   },
   {
     path: 'add-new-alcohol-type',
-    loadChildren: () => import('./add-new-alcohol-type/add-new-alcohol-type.module').then(m => m.AddNewAlcoholTypePageModule)
+    loadChildren: () => import('./add-new-alcohol-type/add-new-alcohol-type.module').then(m => m.AddNewAlcoholTypePageModule),
+    canLoad: [PlatformGuardService],
   },
   {
     path: 'drink-session',

@@ -1,39 +1,27 @@
-import { BehaviorSubject } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { SessionResult } from '../structures';
+import { map } from 'rxjs/operators';
 
 
 @Injectable()
 export class SessionResultsService {
 
-  private readonly sessionResults: BehaviorSubject<any>;
-
-
   constructor(private readonly nativeStorage: NativeStorage) {
-    this.sessionResults = new BehaviorSubject(undefined);
   }
 
 
-  getSessionResults() {
-    this.nativeStorage.getItem('sessionResults')
-      .then(
-        data => console.log(data),
-        error => console.error(error)
-      );
+  getSessionResults(): Observable<Array<SessionResult>> {
+    return from(this.nativeStorage.getItem('sessionResults'))
+      .pipe(
+        map((value: string) => {
+          const sessionResults: Array<SessionResult> = JSON.parse(value) || [];
+
+          return sessionResults;
+        })
+      )
   }
-
-
-  setSessionResults(value: any) {
-    this.nativeStorage.setItem('sessionResults', value)
-      .then(
-        () => console.log('Stored item!'),
-        error => console.error('Error storing item', error)
-      );
-  }
-
-
-
-
 
 }
