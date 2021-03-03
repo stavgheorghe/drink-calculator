@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { SessionResult } from '../../structures';
+import { SessionResult } from 'app/structures';
 
 @Component({
   selector: 'session-result-list',

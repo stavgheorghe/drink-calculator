@@ -4,19 +4,19 @@
 
 <ion-content [fullscreen]="true">
   <ion-list lines="none" mode="md">
-    <ion-item-sliding>
+    <ion-item-sliding *ngFor="let item of list">
       <ion-item>
         <div class="datetime">
-          <span class="time">21:12</span>
-          <span class="date">21.12.2020</span>
+          <span class="time">{{item.time}}</span>
+          <span class="date">{{item.date}}</span>
         </div>
         <div class="drink-name">
-          <span class="alcohol-icon {{'beer'}}"></span>
-          <span class="name">Beer</span>
+          <span class="alcohol-icon {{item.drink?.icon}}"></span>
+          <span class="name">{{item.drink?.name}}</span>
         </div>
         <ion-label slot="end" class="drink-info">
-          <span>7%</span>
-          <span>22ml</span>
+          <span>{{item.drink?.strength}}%</span>
+          <span>{{item.drink?.amount}} {{item.drink?.volumeType}}</span>
         </ion-label>
       </ion-item>
 
@@ -56,10 +56,14 @@
 
   <div *ngIf="progress" class="progress">
     <div>State</div>
-    <progress-bar [value]="progress" [maxValue]="100"></progress-bar>
+    <progress-bar [value]="progress" [maxValue]="500"></progress-bar>
   </div>
 
   <div>
-    <drink-slider [list]="drinks"></drink-slider>
+    <drink-slider [list]="drinks" (drinkAdded)="addDrinkToSession($event)"></drink-slider>
+  </div>
+
+  <div class="btn-container-block">
+    <ion-button type="button" expand="block" color="primary" (click)="endSession()">End session</ion-button>
   </div>
 </ion-content>

@@ -5,7 +5,8 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 import {
-  PageHeaderComponent, ProgressBarComponent,
+  PageHeaderComponent,
+  ProgressBarComponent,
 } from './components';
 import {
   DateWrapperPipe,

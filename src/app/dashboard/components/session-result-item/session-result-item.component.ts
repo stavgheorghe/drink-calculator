@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
+import { SessionResult } from 'app/structures';
+
 import { BAC_MAX_VALUE } from '../../types';
-import { SessionResult } from '../../structures';
 
 
 @Component({

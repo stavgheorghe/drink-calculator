@@ -66,6 +66,16 @@ export class DrinkSessionPage {
   }
 
 
+  endSession() {
+    const result = {
+      date: this.takeDate(new Date()),
+      bloodAlcoholConcentration: this.drinkSessionService.calculate(),
+    }
+
+    this.drinkSessionService.save(result);
+  }
+
+
   private takeDate(date: Date): string {
     const day: string = this.addZeroToDate(date.getDate());
     const month: string = this.addZeroToDate((date.getMonth() + 1));

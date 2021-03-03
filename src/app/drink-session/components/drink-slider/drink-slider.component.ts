@@ -34,14 +34,16 @@ export class DrinkSliderComponent extends BaseComponent implements OnInit {
 
 
   onSlideChanged() {
-    this.slides.getActiveIndex().then((index: number) => {
-      this.drinkAdded.emit(this.list[index]);
-    });
   }
 
 
   addDrink() {
     this.navController.navigateRoot('/add-new-alcohol-type');
+  }
+
+
+  addDrinkToSession(item: DrinkItem) {
+    this.drinkAdded.emit(item);
   }
 
 

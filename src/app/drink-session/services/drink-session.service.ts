@@ -4,7 +4,8 @@ import { share } from 'rxjs/operators';
 
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
-import { DrinkItem, DrinkSessionItem } from 'app/structures';
+import { DrinkItem, DrinkSessionItem, SessionResult } from 'app/structures';
+import { UserDataService } from 'app/core';
 
 
 @Injectable()
@@ -15,7 +16,7 @@ export class DrinkSessionService {
   private drinks: BehaviorSubject<Array<DrinkItem>>;
 
 
-  constructor(private readonly nativeStorage: NativeStorage) {
+  constructor(private readonly nativeStorage: NativeStorage, private readonly userDataService: UserDataService) {
     this.list = new BehaviorSubject([]);
     this.foodStatus = new BehaviorSubject(undefined);
     this.drinks = new BehaviorSubject([]);
@@ -123,7 +124,36 @@ export class DrinkSessionService {
 
 
   calculate(): number {
-    return 0;
+    const list: Array<DrinkSessionItem> = this.list.getValue();
+    const userData: any = this.userDataService.getUserData();
+
+    if (!userData || !userData.gender) {
+      return 0;
+    }
+
+    const r: number = (userData.gender === 'M') ? 0.68 : 0.55;
+    const beta: number = (userData.gender === 'M') ? 0.015 : 0.017;
+    const food: string = this.foodStatus.getValue();
+    let itemResult: number = 0;
+    for (let i = 0; i < list.length; i++) {
+      itemResult += ((list[i].drink.amount * 100) / (userData.weight * r) - (beta * 1)) * parseFloat(food) * 1000;
+    }
+
+    console.log(itemResult);
+    return itemResult;
+  }
+
+
+  save(result: SessionResult) {
+    from(this.nativeStorage.getItem('sessionResults')).subscribe((value: string) => {
+      const items: Array<SessionResult> = JSON.parse(value) || [];
+      items.push(result);
+      this.nativeStorage.setItem('sessionResults', JSON.stringify(items));
+    }, () => {
+      const items = [];
+      items.push(result);
+      this.nativeStorage.setItem('sessionResults', JSON.stringify(items));
+    });
   }
 
 }
