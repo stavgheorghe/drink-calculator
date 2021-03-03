@@ -16,8 +16,11 @@ html {
   text-overflow: ellipsis;
 }
 
-ion-content.content-padding-extend {
-  --padding-bottom: 32px;
+ion-content {
+  font-size: var(--custom-font-size-regular);
+  .content-padding-extend {
+    --padding-bottom: 32px;
+  }
 }
 
 ion-header {

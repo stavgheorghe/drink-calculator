@@ -1,6 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { DOCUMENT } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouteReuseStrategy } from '@angular/router';
@@ -16,7 +15,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from 'app/app-root';
 import { AppRoutingModule } from 'app/app-routing.module';
-import { CoreModule, IS_CORDOVA_DEFINED } from 'app/core';
+import { CoreModule } from 'app/core';
 import { SharedModule } from 'app/shared';
 
 
