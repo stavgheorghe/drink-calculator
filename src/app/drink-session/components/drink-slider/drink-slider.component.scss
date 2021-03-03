@@ -2,72 +2,9 @@ ion-slides {
   --bullet-background: var(--custom-colors-lighter-grey);
   --bullet-background-active: #9e9e9e;
   height: 198px;
-  margin-top: -24px;
-}
+  margin-top: 24px;
 
-.slider-wrapper {
-  height: 112px;
-  width: 100%;
-  // box-shadow: 0 -12px 20px var(--custom-colors-opacity-white-80), 0 20px 20px var(--custom-colors-opacity-black-08);
-  padding: 16px;
-  margin-left: 8px;
-  margin-right: 8px;
-  background-color: var(--custom-colors-background-gray);
-  border-radius: 40px;
+  ion-slide {
 
-  .account-info {
-    .alias-wrapper {
-      justify-content: center;
-      align-content: center;
-
-      .alias {
-        color: var(--custom-colors-black);
-        font-size: var(--custom-font-size-regular-larger);
-        font-weight: 600;
-        margin: 0;
-        line-height: 23px;
-        align-items: center;
-      }
-
-      .share {
-        width: 16px;
-        height: 16px;
-        margin-left: 22px;
-        font-size: var(--custom-font-size-mini);
-        border-radius: 0;
-        outline: none;
-        background: url("/assets/icon/share.svg") no-repeat center center;
-      }
-    }
-
-    .iban {
-      color: var(--custom-colors-dark-grey);
-      font-size: var(--custom-font-size-regular-small);
-      line-height: 21px;
-      text-transform: uppercase;
-      margin: 0 !important;
-      padding-top: 3px;
-    }
-  }
-
-  .amount-value {
-    width: 100%;
-    padding-top: 7px;
-    line-height: 26px;
-    display: inline-grid;
-
-    .item-balance {
-      color: var(--ion-color-secondary);
-      font-size: var(--custom-font-size-regular-larger);
-      font-weight: 600;
-      text-transform: uppercase;
-      margin: 0;
-      width: 100%;
-
-      .item-currency {
-        font-size: var(--custom-font-size-smaller);
-        top: -6px;
-      }
-    }
   }
 }

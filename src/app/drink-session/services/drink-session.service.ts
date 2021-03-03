@@ -4,7 +4,7 @@ import { share } from 'rxjs/operators';
 
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
-import { DrinkSessionItem } from 'app/structures';
+import { DrinkItem, DrinkSessionItem } from 'app/structures';
 
 
 @Injectable()
@@ -12,12 +12,16 @@ export class DrinkSessionService {
 
   private list: BehaviorSubject<Array<DrinkSessionItem>>;
   private foodStatus: BehaviorSubject<string>;
+  private drinks: BehaviorSubject<Array<DrinkItem>>;
 
 
   constructor(private readonly nativeStorage: NativeStorage) {
     this.list = new BehaviorSubject([]);
     this.foodStatus = new BehaviorSubject(undefined);
-    this.check();
+    this.drinks = new BehaviorSubject([]);
+    this.checkDrinkSessionList();
+    this.checkDrinkList();
+    this.checkFood();
   }
 
 
@@ -31,8 +35,13 @@ export class DrinkSessionService {
   }
 
 
-  check() {
-    from(this.nativeStorage.getItem('drinkList')).subscribe((value: string) => {
+  get drinkList(): Observable<Array<DrinkItem>> {
+    return this.drinks.asObservable();
+  }
+
+
+  checkDrinkSessionList() {
+    from(this.nativeStorage.getItem('drinkSessionList')).subscribe((value: string) => {
       const result: Array<DrinkSessionItem> = JSON.parse(value);
       this.list.next(result);
     }, () => {
@@ -41,10 +50,29 @@ export class DrinkSessionService {
   }
 
 
+  checkDrinkList() {
+    from(this.nativeStorage.getItem('drinkList')).subscribe((value: string) => {
+      const result: Array<DrinkItem> = JSON.parse(value);
+      this.drinks.next(result);
+    }, () => {
+      this.drinks.next([]);
+    });
+  }
+
+
+  checkFood() {
+    from(this.nativeStorage.getItem('food')).subscribe((value: string) => {
+      this.foodStatus.next(value);
+    }, () => {
+      this.foodStatus.next(undefined);
+    });
+  }
+
+
   add(item: DrinkSessionItem) {
     const items: Array<DrinkSessionItem> = this.list.getValue();
     items.push(item);
-    this.nativeStorage.setItem('drinkList', JSON.stringify(items));
+    this.nativeStorage.setItem('drinkSessionList', JSON.stringify(items));
     this.list.next(items);
   }
 
@@ -56,13 +84,41 @@ export class DrinkSessionService {
         items.splice(i, 1);
       }
     }
-    this.nativeStorage.setItem('drinkList', JSON.stringify(items));
+    this.nativeStorage.setItem('drinkSessionList', JSON.stringify(items));
     this.list.next(items);
   }
+
 
   updateFood(type: string) {
     this.nativeStorage.setItem('food', type);
     this.foodStatus.next(type);
+  }
+
+
+  removeFood() {
+    this.nativeStorage.setItem('food', undefined);
+    this.foodStatus.next(undefined);
+  }
+
+
+  addDrink(drink: DrinkItem) {
+    const items: Array<DrinkItem> = this.drinks.getValue();
+    items.push(drink);
+    this.nativeStorage.setItem('drinkList', JSON.stringify(items));
+    this.drinks.next(items);
+  }
+
+
+  updateDrink(drink: DrinkItem) {
+    const items: Array<DrinkItem> = this.drinks.getValue();
+    for (let i = 0; i < items.length; i++) {
+      if (items[0].id === drink.id) {
+        items[i] = drink;
+      }
+    }
+
+    this.nativeStorage.setItem('drinkList', JSON.stringify(items));
+    this.drinks.next(items);
   }
 
 }

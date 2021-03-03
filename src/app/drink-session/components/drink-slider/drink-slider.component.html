@@ -1,22 +1,6 @@
 <ion-slides *ngIf="slideOpts" pager="true" [options]="slideOpts" (ionSlideDidChange)="onSlideChanged()">
-  <ion-slide *ngFor="let account of accountsList">
-    <div class="slider-wrapper">
-      <div class="account-info">
-        <div class="alias-wrapper">
-          <span class="alias ellipsis">{{account.alias}}</span>
-          <!-- <button *ngIf="isCordovaDefined && account.share_info"
-                  class="share"
-                  (click)="shareIban(account.share_info)">
-          </button> -->
-        </div>
-        <span class="iban ellipsis" (click)="goToAccountDetailsListPage(account)">{{account.iban}}</span>
-      </div>
-      <div class="amount-value">
-        <span class="item-balance ellipsis">
-          {{account.balance | formatNumber}}
-          <sup class="item-currency">{{account.currency}}</sup>
-        </span>
-      </div>
-    </div>
-  </ion-slide>
+  <ion-slide>+</ion-slide>
+  <ion-slide>+</ion-slide>
+  <ion-slide>+</ion-slide>
+  <ion-slide>+</ion-slide>
 </ion-slides>

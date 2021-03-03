@@ -9,6 +9,7 @@ import { SharedModule } from 'app/shared';
 import { DrinkSessionPage } from './pages';
 import { DrinkSessionPageRoutingModule } from './drink-session-routing.module';
 import { DrinkSessionService } from './services';
+import { DrinkSliderComponent } from './components';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { DrinkSessionService } from './services';
     SharedModule.forChild(),
     DrinkSessionPageRoutingModule,
   ],
-  declarations: [DrinkSessionPage],
+  declarations: [DrinkSessionPage, DrinkSliderComponent],
   providers: [DrinkSessionService],
 })
 export class DrinkSessionModule {
