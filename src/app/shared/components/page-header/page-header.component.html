@@ -1,10 +1,5 @@
 <ion-toolbar mode="md">
   <ion-buttons slot="start">
-    <!-- <ion-menu-button *ngIf="menuService.sideMenuEntriesLength && !backButtonHref && !blockScreen"
-                     class="left-menu" menu="side" auto-hide="false">
-      <ion-icon class="page-header-icon menu-icon"></ion-icon>
-    </ion-menu-button>
-
     <ion-back-button *ngIf="backButtonHref && !blockScreen"
                      icon="arrow-back-button"
                      mode="md"
@@ -21,21 +16,6 @@
   </ion-title>
 
   <ion-buttons slot="end">
-    <!-- <button *ngIf="showLanguageSelector && !blockScreen"
-            class="change-language"
-            [ngClass]="{'active': isLangOpened}"
-            (click)="changeLanguage($event)">
-      <span>{{translateService.currentLang | uppercase}}</span>
-      <ion-icon *ngIf="!isLangOpened" name="chevron-down-outline"></ion-icon>
-      <ion-icon *ngIf="isLangOpened" name="chevron-up-outline"></ion-icon>
-    </button> -->
-
-    <!-- <ion-menu-button *ngIf="(authStatusService.current | async) && menuService.sideUserEntriesLength && !blockScreen && !backButtonHref"
-                     class="right-menu" menu="user">
-      <ion-avatar>
-        {{partyName | shortPartyName}}
-        <ion-badge *ngIf="unreadMessagesService?.count">{{unreadMessagesService?.count}}</ion-badge>
-      </ion-avatar>
-    </ion-menu-button> -->
+    <ion-button>Settings</ion-button>
   </ion-buttons>
 </ion-toolbar>
