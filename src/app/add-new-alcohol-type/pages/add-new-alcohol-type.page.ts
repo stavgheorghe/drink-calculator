@@ -3,10 +3,10 @@ import { BaseComponent, idGenerator, NavControllerExtendedService } from 'app/co
 import { Component } from '@angular/core';
 import { FORM_CONTROL_REGEX_PATTERNS } from 'app/core/types';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { NavController } from '@ionic/angular';
+import { from } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import {from} from "rxjs";
-import {NativeStorage} from "@ionic-native/native-storage/ngx";
 
 
 @Component({
@@ -18,6 +18,8 @@ export class AddNewAlcoholTypePage extends BaseComponent {
 
   formGroup: FormGroup;
   selectedIcon: any;
+  alcoholList: Array<any>;
+
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
@@ -33,7 +35,13 @@ export class AddNewAlcoholTypePage extends BaseComponent {
       volumeType: [undefined, [Validators.required]],
       strength: [undefined, [Validators.required, Validators.pattern(FORM_CONTROL_REGEX_PATTERNS.numbersOnly)]],
     });
+    this.alcoholList = [];
     this.detectNewIconChanges();
+    from(this.nativeStorage.getItem('alcoholList'))
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe((value) => {
+        this.alcoholList = JSON.parse(value);
+      });
   }
 
   addNewIcon() {
@@ -49,8 +57,12 @@ export class AddNewAlcoholTypePage extends BaseComponent {
       volumeType: this.formGroup.get('volumeType')?.value,
       strength: this.formGroup.get('strength')?.value,
     };
-
-    // from(this.nativeStorage.setItem('userData' , userData))
+    this.alcoholList.push(newTypeData);
+    from(this.nativeStorage.setItem('alcoholList' , JSON.stringify(this.alcoholList)))
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe(() => {
+        this.navController.navigateRoot('/dashboard');
+      });
   }
 
   private detectNewIconChanges() {
