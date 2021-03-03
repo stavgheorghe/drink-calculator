@@ -62,6 +62,7 @@ import {
     TransformToCssBgPipe,
     PageHeaderComponent,
     RemoveWhiteSpacePipe,
+    ProgressBarComponent,
   ],
   providers: [
   ],
