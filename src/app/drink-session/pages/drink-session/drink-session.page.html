@@ -3,5 +3,58 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  test
+  <ion-list lines="none" mode="md">
+    <ion-item-sliding>
+      <ion-item>
+        <div class="datetime">
+          <span class="time">21:12</span>
+          <span class="date">21.12.2020</span>
+        </div>
+        <div class="drink-name">
+          <span class="alcohol-icon {{'beer'}}"></span>
+          <span class="name">Beer</span>
+        </div>
+        <ion-label slot="end" class="drink-info">
+          <span>7%</span>
+          <span>22ml</span>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option (click)="removeDrinkFromSession()">Remove</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <div class="state">
+    <ion-radio-group lines="none" [(ngModel)]="food" (ionChange)="changeFood()">
+      <ion-list-header>
+        <ion-label>Eat</ion-label>
+      </ion-list-header>
+
+      <ion-item lines="none" slot="start">
+        <ion-label>Nothing</ion-label>
+        <ion-radio slot="start" value="nothing"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="none" slot="start">
+        <ion-label>Weak</ion-label>
+        <ion-radio slot="start" value="weak"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="none" slot="start">
+        <ion-label>Middle</ion-label>
+        <ion-radio slot="start" value="middle"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="none" slot="start">
+        <ion-label>Good</ion-label>
+        <ion-radio slot="start" value="good"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </div>
+
+  <div>zdesi mogla bity vasha progress bar</div>
+
+  <div>slider</div>
 </ion-content>

@@ -1,5 +1,6 @@
 export interface DrinkItem {
 
+  id: string;
   icon: string;
   name: string;
   amount: number;

@@ -17,7 +17,7 @@ export class DateWrapperPipe implements PipeTransform {
   transform(value: any, params?: string): string {
     let result;
     const dateFormat = (params || DateWrapperPipe.format);
-    const datePipe = new DatePipe('ro');
+    const datePipe = new DatePipe('en');
 
     try {
       const timezone = (value.indexOf('.') !== -1) ? 'Z' : '';

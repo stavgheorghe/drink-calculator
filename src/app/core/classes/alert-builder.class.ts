@@ -72,7 +72,7 @@ export class AlertBuilder {
 
 
   private mergeDefaultButtonConfig(button: AlertButton | any): AlertButton {
-    return _.merge({}, this.defaultButton, button);
+    return {...this.defaultButton, ...button};
   }
 
 }
