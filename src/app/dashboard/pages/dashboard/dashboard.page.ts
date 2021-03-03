@@ -34,7 +34,6 @@ export class DashboardPage implements OnInit {
 
   ngOnInit() {
     this.userDataService.data.subscribe((value: any) => {
-      value = {name: 'Alina Pi'};
       if (!value) {
         this.navController.navigateRoot('/user');
       } else {
