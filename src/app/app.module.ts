@@ -1,5 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { CookieService } from 'ng2-cookies';
 import { DOCUMENT } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -18,6 +19,8 @@ import { AppComponent } from 'app/app-root';
 import { AppRoutingModule } from 'app/app-routing.module';
 import { CoreModule, IS_CORDOVA_DEFINED } from 'app/core';
 import { SharedModule } from 'app/shared';
+
+import { NativeStorageMock } from './mocks';
 
 
 @NgModule({
@@ -40,6 +43,7 @@ import { SharedModule } from 'app/shared';
     AppRoutingModule,
   ],
   providers: [
+    CookieService,
     Device,
     MobileAccessibility,
     SplashScreen,
@@ -48,7 +52,11 @@ import { SharedModule } from 'app/shared';
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy,
     },
-    NativeStorage,
+    {
+      provide: NativeStorage,
+      useFactory: (cookieService: CookieService) => (IS_CORDOVA_DEFINED) ? new NativeStorage() : new NativeStorageMock(cookieService),
+      deps: [CookieService],
+    },
     InAppBrowser,
     Network,
   ],

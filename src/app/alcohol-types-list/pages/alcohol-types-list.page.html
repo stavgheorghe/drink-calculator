@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      alcohol-types-list
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="item-wrap">
+    <div class="item" *ngFor="let item of alcoholList">
+      <div class="alcohol-icon {{item?.icon}}" (click)="selectIcon(item)"></div>
+      <span>{{item?.name}}</span>
+    </div>
+  </div>
+</ion-content>
