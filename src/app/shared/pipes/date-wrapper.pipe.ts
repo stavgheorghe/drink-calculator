@@ -17,11 +17,10 @@ export class DateWrapperPipe implements PipeTransform {
   transform(value: any, params?: string): string {
     let result;
     const dateFormat = (params || DateWrapperPipe.format);
-    const datePipe = new DatePipe('ro');
+    const datePipe = new DatePipe('en-EN');
 
     try {
-      const timezone = (value.indexOf('.') !== -1) ? 'Z' : '';
-      result = datePipe.transform(value + timezone, dateFormat);
+      result = datePipe.transform(value, dateFormat);
     } catch (err) {
       result = value;
     }
