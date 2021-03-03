@@ -1,0 +1,10 @@
+<div class="progress-bar">
+  <div class="progress"
+       [ngStyle]="{'width' : progress + '%'}"
+       [ngClass]="{
+         'low'       :  progress <= 25,
+         'medium'    : (progress > 25 && progress <= 50),
+         'high'      : (progress > 50 && progress <= 75),
+         'very-high' :  progress > 75}">
+  </div>
+</div>

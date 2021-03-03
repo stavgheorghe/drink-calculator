@@ -1,0 +1,9 @@
+<div class="session-result-item">
+  <div class="date">{{record.date | dateWrapper: 'medium'}}</div>
+  <div class="state">
+    <div class="bac">{{record.bloodAlcoholConcentration}}</div>
+    <div class="progress">
+      <progress-bar [value]="record.bloodAlcoholConcentration" [maxValue]="maxBloodAlcoholConcentration"></progress-bar>
+    </div>
+  </div>
+</div>
