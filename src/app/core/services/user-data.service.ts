@@ -1,8 +1,7 @@
 import { BehaviorSubject, from, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { filter } from 'rxjs/operators';
-import { flatMap } from 'rxjs/internal/operators';
+import { filter, flatMap } from 'rxjs/operators';
 
 
 @Injectable()
