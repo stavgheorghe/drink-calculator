@@ -1,5 +1,7 @@
 {
   "name": "drink-calculator",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,0 +1,132 @@
+:root {
+  --custom-colors-primary: var(--ion-color-primary);
+  --custom-colors-secondary: var(--ion-color-secondary);
+  --custom-colors-info: #3399cc;
+  --custom-colors-dark-grey: #767676;
+  --custom-colors-darker-grey: #404040;
+  --custom-colors-lighter-grey: #c7c7c7;
+  --custom-colors-medium-grey: #979797;
+  --custom-colors-danger: var(--ion-color-danger);
+  --custom-colors-light: var(--ion-color-light);
+  --custom-colors-medium: var(--ion-color-medium);
+  --custom-colors-dark: var(--ion-color-dark);
+  --custom-colors-lite-dark: #404040;
+  --custom-colors-black: #000000;
+  --custom-colors-white-color: #ffffff;
+  --custom-colors-white: #ffffff;
+  --custom-colors-mint: #24c57e;
+  --custom-colors-sun: #f5a623;
+  --custom-colors-background-gray: #f5f6f8;
+  --custom-colors-dark-orange: #ff6600;
+  --custom-colors-orange: var(--ion-color-warning);
+  --custom-colors-inactive-button: #e3e3e3;
+  --custom-colors-secondary-dark-text: #4a4a4a;
+  --custom-colors-light-grey: #e0e0e0;
+  --custom-colors-light-green: #a5d394;
+  --custom-colors-dropdown-group-background: #f2f2f2;
+  --custom-colors-dropdown-divider-color: #dedfe3;
+  --custom-colors-disabled-text: #828282;
+  --custom-colors-currency-gray: #8e9093;
+  --custom-colors-cloudy-gray: #4a4a4a;
+  --custom-colors-inactive-toggle-inner: #d7d8da;
+  --custom-colors-ng-placeholder: #a6a6a6a;
+  --custom-colors-divider-line: #e3e3e3;
+
+
+  --custom-colors-opacity-black-02: rgba(0, 0, 0, 0.02);
+  --custom-colors-opacity-black-08: rgba(0, 0, 0, 0.08);
+  --custom-colors-opacity-black-14: rgba(0, 0, 0, 0.14);
+  --custom-colors-opacity-black-15: rgba(0, 0, 0, 0.15);
+  --custom-colors-opacity-black-19: rgba(0, 0, 0, 0.19);
+  --custom-colors-opacity-black-20: rgba(0, 0, 0, 0.20);
+  --custom-colors-opacity-black-25: rgba(0, 0, 0, 0.25);
+  --custom-colors-opacity-black-28: rgba(0, 0, 0, 0.28);
+  --custom-colors-opacity-black-35: rgba(0, 0, 0, 0.35);
+  --custom-colors-opacity-black-40: rgba(0, 0, 0, 0.40);
+  --custom-colors-opacity-black-50: rgba(0, 0, 0, 0.50);
+  --custom-colors-opacity-black-54: rgba(0, 0, 0, 0.54);
+  --custom-colors-opacity-black-62: rgba(0, 0, 0, 0.62);
+  --custom-colors-opacity-black-87: rgba(0, 0, 0, 0.87);
+  --custom-colors-opacity-white-08: rgba(255, 255, 255, 0.08);
+  --custom-colors-opacity-white-50: rgba(255, 255, 255, 0.50);
+  --custom-colors-opacity-white-80: rgba(255, 255, 255, 0.80);
+  --custom-colors-opacity-white-87: rgba(255, 255, 255, 0.87);
+  --custom-colors-opacity-grey-20: rgba(126, 126, 126, 0.20);
+  --custom-colors-opacity-grey-42: rgba(126, 126, 126, 0.42);
+  --custom-colors-opacity-dark-grey-02: rgba(82, 174, 48, 0.20);
+
+
+  --custom-low-white-color: rgba(255, 255, 255, 0.1);
+  --custom-low-black-color: rgba(0, 0, 0, 0.1);
+  --custom-low-green-color: rgba(42, 127, 0, 0.07);
+
+
+  --custom-font-size-nano: 0.7rem;
+  --custom-font-size-micro: 0.8rem;
+  --custom-font-size-mini: 1rem;
+  --custom-font-size-smaller: 1.1rem;
+  --custom-font-size-small: 1.2rem;
+  --custom-font-size-medium: 1.3rem;
+  --custom-font-size-regular: 1.4rem;
+  --custom-font-size-regular-small: 1.5rem;
+  --custom-font-size-regular-large: 1.6rem;
+  --custom-font-size-regular-larger: 1.7rem;
+  --custom-font-size-broad: 1.8rem;
+  --custom-font-size-large: 1.9rem;
+
+
+  --custom-font-size-custom-smaller: 0.8rem;
+  --custom-font-size-custom-small: 0.9rem;
+  --custom-font-size-custom-regular: 1.5rem;
+  --custom-font-size-custom-large: 2.6rem;
+  --custom-font-size-custom-extra-large: 3rem;
+
+
+  --custom-link-color: var(--custom-colors-primary);
+  --custom-fab-add-icon-font-size: 3.8rem;
+
+
+  --custom-large-input-distance: 24px;
+  --custom-regular-input-distance: 16px;
+  --custom-small-input-distance: 8px;
+
+
+  --custom-btn-height: 4.8rem;
+  --custom-btn-radius: 24px;
+  --custom-btn-border-size: 1px;
+  --custom-btn-border-style: solid;
+
+
+  --custom-btn-font-size: 15px;
+  --custom-btn-font-weight: 600;
+  --custom-btn-text-transform: none;
+
+
+  --custom-btn-link-font-size: 13px;
+  --custom-btn-link-font-weight: 700;
+  --custom-btn-link-line-height: 18px;
+
+
+  --custom-btn-shadow: 0 8px 14px rgba(0, 0, 0, 0.14);
+
+
+  --custom-modal-border-radius: 2px;
+  --custom-modal-backgroud: var(--custom-colors-opacity-black-40);
+  --custom-modal-shadow: 0 20px 20px rgba(0, 0, 0, 0.35);
+  --custom-modal-content-background: var(--custom-colors-white);
+
+
+  --custom-text-active: var(--custom-colors-primary);
+  --custom-text-call-to-action: var(--custom-colors-primary);
+  --custom-text-title-secondary: var(--custom-colors-secondary);
+  --custom-text-secondary: var(--custom-colors-secondary);
+  --custom-text-default: var(--custom-colors-opacity-black-54);
+  --custom-letter-spacing: 3px;
+  --custom-link: var(--custom-colors-primary);
+
+
+  --page-header-padding-bottom: 32px;
+}
+
+
+$default-button-shadow: (dimensions: '0 8px 14px', color: var(--custom-colors-opacity-black-14));

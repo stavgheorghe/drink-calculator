@@ -1,0 +1,121 @@
+ion-toolbar {
+  --background: var(--custom-colors-background-gray);
+  --buttons-box-shadow: 0 -12px 20px var(--custom-colors-opacity-white-08),
+  0 20px 20px var(--custom-colors-opacity-black-08);
+  --padding-top: 10px;
+  --padding-bottom: var(--page-header-padding-bottom);
+  --padding-start: 16px;
+  --padding-end: 16px;
+
+  &:last-of-type {
+    --border-width: 0;
+  }
+
+  .ion-title-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logo-image {
+      background: url('/assets/img/app-logo.svg') no-repeat center center;
+      width: 115px;
+      height: 28px;
+      display: inline-block;
+    }
+
+    .title-text {
+      color: var(--custom-colors-primary);
+      font-size: var(--custom-font-size-large);
+      font-weight: 600;
+    }
+  }
+
+  ion-buttons {
+    min-width: 40px;
+    min-height: 40px;
+    margin: 0;
+  }
+
+  .left-menu {
+    background-color: var(--custom-colors-background-gray);
+    box-shadow: var(--buttons-box-shadow);
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    ion-icon {
+      width: 24px;
+      height: 24px;
+      background: url('/assets/icon/menu.svg') no-repeat center / cover;
+    }
+  }
+
+  ion-back-button {
+    --background: var(--custom-colors-background-gray);
+    --padding-start: 0;
+    --padding-end: 0;
+    --height: 40px;
+    --width: 40px;
+
+    &.back-button-has-icon-only {
+      height: var(--height);
+      min-width: var(--width);
+    }
+
+    &::part(native) {
+      box-shadow: var(--buttons-box-shadow);
+    }
+  }
+
+
+  .change-language {
+    color: var(--custom-colors-black);
+    font-size: var(--custom-font-size-medium);
+    font-weight: 400;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.activated {
+      background-color: var(--custom-low-black-color);
+    }
+
+    &.active {
+      background-color: transparent;
+    }
+
+    ion-icon {
+      padding: 5px 2px 5px 0;
+    }
+  }
+
+  .right-menu {
+    --padding-start: 0;
+    --padding-end: 0;
+    --background-hover: transparent;
+
+    &::part(native) {
+      overflow: visible;
+    }
+
+    &::part(icon) {
+      display: none;
+    }
+
+    ion-badge {
+      --background: var(--custom-colors-dark-orange);
+      position: absolute;
+      top: 3px;
+      right: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      font-size: var(--custom-font-size-custom-small);
+    }
+  }
+}
