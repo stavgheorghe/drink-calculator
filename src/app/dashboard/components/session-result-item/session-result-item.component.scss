@@ -1,0 +1,17 @@
+.session-result-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  font-size: 16px;
+  background: white;
+  margin-bottom: 8px;
+
+  .date {
+    width: 70%;
+  }
+
+  .state {
+    width: 30%;
+  }
+}

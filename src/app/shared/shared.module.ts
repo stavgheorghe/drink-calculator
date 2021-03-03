@@ -5,7 +5,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 import {
-  PageHeaderComponent,
+  PageHeaderComponent, ProgressBarComponent,
 } from './components';
 import {
   DateWrapperPipe,
@@ -46,6 +46,7 @@ import {
     TransformToCssBgPipe,
     PageHeaderComponent,
     RemoveWhiteSpacePipe,
+    ProgressBarComponent,
   ],
   exports: [
     ClickOutsideDirective,
@@ -61,6 +62,7 @@ import {
     TransformToCssBgPipe,
     PageHeaderComponent,
     RemoveWhiteSpacePipe,
+    ProgressBarComponent,
   ],
   providers: [
   ],

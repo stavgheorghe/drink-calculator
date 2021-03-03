@@ -1,0 +1,33 @@
+ion-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  height: 80px;
+
+  .user-name {
+    font-size: 16px;
+  }
+
+  .settings {
+    ion-fab-button {
+      --background: transparent;
+      --box-shadow: none;
+    }
+
+    ion-fab-list {
+      margin: 20px 20px 0 0;
+
+      .list {
+        background: whitesmoke;
+        width: 120px;
+      }
+
+      .item {
+        padding: 8px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+
