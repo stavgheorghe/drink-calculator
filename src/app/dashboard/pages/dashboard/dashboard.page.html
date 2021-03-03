@@ -1,12 +1,12 @@
 <ion-header>
-  {{userName}}
+  <div class="user-name">{{userName}}</div>
   <ion-fab class="settings" vertical="top" horizontal="end">
-    <ion-fab-button (click)="showSettings()">
+    <ion-fab-button [ngClass]="{'fab-button-close-active': areSettingsShown}" (click)="toggleSettings()">
       <ion-icon name="settings"></ion-icon>
     </ion-fab-button>
     <ion-fab-list *ngIf="areSettingsShown" side="bottom">
-      <div class="actions">
-        <div *ngFor="let item of settings" class="item-actions" (click)="redirectToPage(item.path)">
+      <div class="list">
+        <div *ngFor="let item of settings" class="item" (click)="redirectToPage(item.path)">
           <div>{{item.label}}</div>
         </div>
       </div>
@@ -15,7 +15,7 @@
   </ion-fab>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <session-result-list></session-result-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="moveToNewSessionPage()">
