@@ -8,7 +8,7 @@ import { SharedModule } from '../shared';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardPage } from './pages';
-import { ProgressBarComponent, SessionResultItemComponent, SessionResultListComponent } from './components';
+import { SessionResultItemComponent, SessionResultListComponent } from './components';
 
 
 @NgModule({
@@ -21,7 +21,6 @@ import { ProgressBarComponent, SessionResultItemComponent, SessionResultListComp
   ],
   declarations: [
     DashboardPage,
-    ProgressBarComponent,
     SessionResultItemComponent,
     SessionResultListComponent,
   ]

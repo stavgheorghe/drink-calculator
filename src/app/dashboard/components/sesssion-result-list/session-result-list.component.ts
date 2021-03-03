@@ -37,6 +37,54 @@ export class SessionResultListComponent {
         date: new Date().toISOString(),
         bloodAlcoholConcentration: 0.023,
       },
+      {
+        date: '2021-03-03T14:03:59.535Z',
+        bloodAlcoholConcentration: 0.123,
+      },
+      {
+        date: new Date().toISOString(),
+        bloodAlcoholConcentration: 0.231,
+      },
+      {
+        date: new Date().toISOString(),
+        bloodAlcoholConcentration: 0.345,
+      },
+      {
+        date: new Date().toISOString(),
+        bloodAlcoholConcentration: 0.645,
+      },
+      {
+        date: new Date().toISOString(),
+        bloodAlcoholConcentration: 0.445,
+      },
+      {
+        date: new Date().toISOString(),
+        bloodAlcoholConcentration: 0.023,
+      },
+      {
+        date: '2021-03-03T14:03:59.535Z',
+        bloodAlcoholConcentration: 0.123,
+      },
+      {
+        date: new Date().toISOString(),
+        bloodAlcoholConcentration: 0.231,
+      },
+      {
+        date: new Date().toISOString(),
+        bloodAlcoholConcentration: 0.345,
+      },
+      {
+        date: new Date().toISOString(),
+        bloodAlcoholConcentration: 0.645,
+      },
+      {
+        date: new Date().toISOString(),
+        bloodAlcoholConcentration: 0.445,
+      },
+      {
+        date: new Date().toISOString(),
+        bloodAlcoholConcentration: 0.023,
+      },
     ];
   }
 
