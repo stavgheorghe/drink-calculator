@@ -18,7 +18,7 @@ export class DashboardPage implements OnInit {
 
   constructor(
     private readonly userDataService: UserDataService,
-    private readonly navController: NavController
+    private readonly navController: NavController,
   ) {
     this.settings = [
       {
@@ -55,7 +55,7 @@ export class DashboardPage implements OnInit {
   }
 
 
-  toggleSettings() {
+  showSettings() {
     this.areSettingsShown = true;
   }
 
