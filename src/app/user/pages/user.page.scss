@@ -1,0 +1,45 @@
+.avatar {
+  background-image: url("/assets/icon/avatar.svg");
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+ion-radio-group {
+  margin-top: 24px;
+  display: block;
+
+  ion-list-header {
+    padding-inline-start: 0;
+  }
+
+  .gender-select {
+    display: flex;
+  }
+
+  ion-item {
+    --padding-start: 0;
+    --border-color: transparent;
+
+    &:first-child {
+      margin-bottom: 24px;
+    }
+
+    ion-radio {
+      margin-right: 8px;
+      height: 24px;
+      width: 24px;
+    }
+
+    ion-label {
+      font-size: 13px;
+      color: var(--custom-colors-dark-grey);
+    }
+  }
+}
+
+.year-select {
+  margin-top: 24px;
+  --border-color: var(--custom-colors-black);
+}

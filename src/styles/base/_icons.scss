@@ -1,0 +1,13 @@
+@import '../mixins/alcohol-type-sprite-mixin';
+
+.alcohol-icon {
+  $currency-icon-size: 50px;
+  $sprite-size: $currency-icon-size * $sprite-column-count;
+
+  width: $currency-icon-size;
+  height: $currency-icon-size;
+  border-radius: 50%;
+  background: url('/assets/icon/types-alcohol.png') no-repeat;
+  background-size: $sprite-size;
+  @include set-sprite-icon-positioning($currency-icon-size);
+}

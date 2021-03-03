@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      User Page
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="avatar"></div>
+
+  <form [formGroup]="formGroup" (ngSubmit)="saveUserData()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Weight</ion-label>
+        <ion-input inputmode="numeric" formControlName="weight"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Height</ion-label>
+        <ion-input inputmode="numeric" formControlName="height"></ion-input>
+      </ion-item>
+
+      <ion-item class="year-select">
+        <ion-label>Year of birth</ion-label>
+        <ion-select formControlName="year" placeholder="Select year">
+          <ion-select-option *ngFor="let year of getYearsArray()" [value]="year">{{year}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-radio-group formControlName="gender">
+        <ion-list-header>
+          <ion-label>Gender</ion-label>
+        </ion-list-header>
+
+        <div class="gender-select">
+          <ion-item>
+            <ion-label>Male</ion-label>
+            <ion-radio slot="start" value="M"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Female</ion-label>
+            <ion-radio slot="start" value="F"></ion-radio>
+          </ion-item>
+        </div>
+      </ion-radio-group>
+    </ion-list>
+
+    <div class="btn-container-block">
+      <ion-button type="submit" expand="block" color="primary" [disabled]="formGroup.invalid">
+        Save
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

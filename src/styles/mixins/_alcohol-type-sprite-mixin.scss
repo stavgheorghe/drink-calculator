@@ -1,0 +1,56 @@
+$sprite-column-count: 6;
+$currency-icons:
+  gin,
+  gin_gray,
+  vodka,
+  vodka_gray,
+  cognac,
+  cognac_gray,
+  ROSE_COCTAIL,
+  ORANGE_COCTAIL,
+  ORANGE_COCTAIL_WITH_ICE,
+  BEER,
+  GREEN_MEXICAN,
+  WINE,
+  WINE,
+  CHAMPAIN,
+  COCTAIL,
+  COGNAC,
+  WHISKEY,
+  ROSE_COCTAIL,
+  ORANGE_COCTAIL,
+  ORANGE_COCTAIL_WITH_ICE,
+  BEER,
+  GREEN_MEXICAN,
+  WINE,
+  WINE,
+  CHAMPAIN,
+  COCTAIL,
+  COGNAC,
+  WHISKEY,
+  ROSE_COCTAIL,
+  ORANGE_COCTAIL,
+  ORANGE_COCTAIL_WITH_ICE,
+  BEER,
+  GREEN_MEXICAN,
+;
+
+@mixin set-sprite-icon-positioning($icon-size, $list: $currency-icons, $sprite-column-count: $sprite-column-count) {
+  $row: 0;
+  $column: 0;
+  $i: 0;
+
+  @each $item in $list {
+    &.#{$item} {
+      background-position-x: -$icon-size * $column;
+      background-position-y: -$icon-size * $row;
+    }
+
+    $i: $i + 1;
+    $column: $i % $sprite-column-count;
+
+    @if ($i % $sprite-column-count == 0) {
+      $row: $row + 1;
+    }
+  }
+}
