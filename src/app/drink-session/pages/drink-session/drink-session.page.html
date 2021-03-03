@@ -34,27 +34,30 @@
 
       <ion-item lines="none" slot="start">
         <ion-label>Nothing</ion-label>
-        <ion-radio slot="start" value="nothing"></ion-radio>
+        <ion-radio slot="start" value="1.2"></ion-radio>
       </ion-item>
 
       <ion-item lines="none" slot="start">
         <ion-label>Weak</ion-label>
-        <ion-radio slot="start" value="weak"></ion-radio>
+        <ion-radio slot="start" value="1.1"></ion-radio>
       </ion-item>
 
       <ion-item lines="none" slot="start">
         <ion-label>Middle</ion-label>
-        <ion-radio slot="start" value="middle"></ion-radio>
+        <ion-radio slot="start" value="1.0"></ion-radio>
       </ion-item>
 
       <ion-item lines="none" slot="start">
         <ion-label>Good</ion-label>
-        <ion-radio slot="start" value="good"></ion-radio>
+        <ion-radio slot="start" value="0.9"></ion-radio>
       </ion-item>
     </ion-radio-group>
   </div>
 
-  <div>zdesi mogla bity vasha progress bar</div>
+  <div class="progress">
+    <div>State</div>
+    <progress-bar [value]="0.78" [maxValue]="1"></progress-bar>
+  </div>
 
   <div>
     <drink-slider [list]="[]"></drink-slider>

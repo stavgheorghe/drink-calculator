@@ -18,11 +18,11 @@ export class DrinkSliderComponent extends BaseComponent implements OnInit {
   @Input() list: Array<DrinkItem>;
   @Output() drinkAdded: EventEmitter<DrinkItem>;
 
-  slideOpts: {initialSlide: number; speed: number; slidesPerView: number};
+  slideOpts: any;
   selectedItem: DrinkItem;
 
 
-  constructor() {
+  constructor(private readonly navController: NavController) {
     super();
     this.drinkAdded = new EventEmitter();
   }
@@ -40,10 +40,16 @@ export class DrinkSliderComponent extends BaseComponent implements OnInit {
   }
 
 
+  addDrink() {
+    this.navController.navigateRoot('/add-new-alcohol-type');
+  }
+
+
   private initSlider() {
     this.slideOpts = {
       initialSlide: 0,
       slidesPerView: 4,
+      spaceBetween: 10,
       speed: 400
     };
   }

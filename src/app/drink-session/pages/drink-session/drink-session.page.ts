@@ -51,6 +51,11 @@ export class DrinkSessionPage {
   }
 
 
+  calculate() {
+
+  }
+
+
   private takeDate(date: Date): string {
     const day: string = this.addZeroToDate(date.getDate());
     const month: string = this.addZeroToDate((date.getMonth() + 1));
