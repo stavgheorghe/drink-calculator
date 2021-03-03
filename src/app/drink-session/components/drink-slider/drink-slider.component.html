@@ -1,6 +1,9 @@
 <ion-slides *ngIf="slideOpts" pager="true" [options]="slideOpts" (ionSlideDidChange)="onSlideChanged()">
   <ion-slide (click)="addDrink()">+</ion-slide>
-  <ion-slide>+</ion-slide>
-  <ion-slide>+</ion-slide>
-  <ion-slide>+</ion-slide>
+  <ion-slide *ngFor="let item of list">
+    <div clas="drink-icon {{item.icon}}"></div>
+    <div clas="drink-name">{{item.name}}</div>
+    <div clas="drink-strength">{{item.strength}}%</div>
+    <div clas="drink-volume">{{item.volume}} {{item.volumeType}}</div>
+  </ion-slide>
 </ion-slides>

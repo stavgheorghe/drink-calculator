@@ -121,4 +121,9 @@ export class DrinkSessionService {
     this.drinks.next(items);
   }
 
+
+  calculate(): number {
+    return 0;
+  }
+
 }

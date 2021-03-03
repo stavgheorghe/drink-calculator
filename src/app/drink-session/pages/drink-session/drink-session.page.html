@@ -54,12 +54,12 @@
     </ion-radio-group>
   </div>
 
-  <div class="progress">
+  <div *ngIf="progress" class="progress">
     <div>State</div>
-    <progress-bar [value]="0.78" [maxValue]="1"></progress-bar>
+    <progress-bar [value]="progress" [maxValue]="100"></progress-bar>
   </div>
 
   <div>
-    <drink-slider [list]="[]"></drink-slider>
+    <drink-slider [list]="drinks"></drink-slider>
   </div>
 </ion-content>

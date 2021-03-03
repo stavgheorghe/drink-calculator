@@ -5,6 +5,7 @@ export interface DrinkItem {
   name: string;
   amount: number;
   volumeType: 'ml' | 'L';
+  volume: number;
   strength: number;
 
 }

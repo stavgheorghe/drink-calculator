@@ -14,17 +14,27 @@ import { DrinkSessionService } from '../../services';
 export class DrinkSessionPage {
 
   list: Array<DrinkSessionItem>;
+  drinks: Array<DrinkItem>;
   food: string;
+  progress: number;
 
 
   constructor(private readonly drinkSessionService: DrinkSessionService) {
     this.list = [];
+    this.drinks = [];
     this.drinkSessionService.drinkSessionList.subscribe((list: Array<DrinkSessionItem>) => {
       this.list = list;
+      this.calculate();
     });
 
     this.drinkSessionService.food.subscribe((food: string) => {
       this.food = food;
+      this.calculate();
+    });
+
+    this.drinkSessionService.drinkList.subscribe((list: Array<DrinkItem>) => {
+      this.drinks = list;
+      this.calculate();
     });
   }
 
@@ -52,7 +62,7 @@ export class DrinkSessionPage {
 
 
   calculate() {
-
+    this.progress = this.drinkSessionService.calculate();
   }
 
 
