@@ -1,12 +1,16 @@
 import { ActivatedRoute } from '@angular/router';
-import { BaseComponent, idGenerator, NavControllerExtendedService } from 'app/core';
 import { Component } from '@angular/core';
-import { FORM_CONTROL_REGEX_PATTERNS } from 'app/core/types';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { NavController } from '@ionic/angular';
 import { from } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
+
+
+import { NavController } from '@ionic/angular';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
+import { BaseComponent, idGenerator, NavControllerExtendedService } from 'app/core';
+import { DrinkItem } from 'app/structures';
+import { FORM_CONTROL_REGEX_PATTERNS } from 'app/core/types';
 
 
 @Component({
@@ -49,6 +53,7 @@ export class AddNewAlcoholTypePage extends BaseComponent {
   }
 
   addNewType() {
+    console.log('test');
     const newTypeData = {
       id: idGenerator(),
       icon: this.selectedIcon.icon,
@@ -57,10 +62,17 @@ export class AddNewAlcoholTypePage extends BaseComponent {
       volumeType: this.formGroup.get('volumeType')?.value,
       strength: this.formGroup.get('strength')?.value,
     };
-    this.alcoholList.push(newTypeData);
-    from(this.nativeStorage.setItem('alcoholList' , JSON.stringify(this.alcoholList)))
+
+    from(this.nativeStorage.getItem('drinkList'))
       .pipe(takeUntil(this.onDestroy))
-      .subscribe(() => {
+      .subscribe((value: string) => {
+        const list: Array<DrinkItem> = JSON.parse(value) || [];
+        list.push(newTypeData);
+        this.nativeStorage.setItem('drinkList' , JSON.stringify(list));
+        this.navController.navigateRoot('/dashboard');
+      }, () => {
+        const list: Array<DrinkItem> = [newTypeData];
+        this.nativeStorage.setItem('drinkList' , JSON.stringify(list));
         this.navController.navigateRoot('/dashboard');
       });
   }

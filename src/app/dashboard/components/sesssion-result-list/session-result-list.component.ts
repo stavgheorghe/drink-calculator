@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
-import { SessionResult } from '../../structures';
+import { SessionResult } from 'app/structures';
 import { SessionResultsService } from '../../services';
+
 
 @Component({
   selector: 'session-result-list',

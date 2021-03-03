@@ -1,0 +1,12 @@
+ion-slides {
+  --bullet-background: var(--custom-colors-lighter-grey);
+  --bullet-background-active: #9e9e9e;
+  height: 198px;
+  margin-top: 24px;
+
+  ion-slide {
+    height: 160px;
+    border-radius: 20px;
+    border: 1px solid var(--custom-colors-lighter-grey);
+  }
+}

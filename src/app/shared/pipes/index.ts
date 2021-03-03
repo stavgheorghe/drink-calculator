@@ -1,11 +1,9 @@
 export { DateWrapperPipe } from './date-wrapper.pipe';
 export { FormatNumberPipe } from './format-number.pipe';
-export { GroupByPipe } from './group-by.pipe';
 export { LongDateAndTimePipe } from './long-date-and-time.pipe';
 export { LongDatePipe } from './long-date.pipe';
 export { MonthDatePipe } from './month-date.pipe';
 export { RemoveWhiteSpacePipe } from './remove-white-space.pipe';
 export { SafeHtmlPipe } from './safe-html.pipe';
 export { ShortDatePipe } from './short-date.pipe';
-export { SortByPipe } from './sort-by.pipe';
 export { TransformToCssBgPipe } from './transform-to-css-bg.pipe';

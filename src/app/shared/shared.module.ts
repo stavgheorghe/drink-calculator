@@ -5,19 +5,18 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 import {
-  PageHeaderComponent, ProgressBarComponent,
+  PageHeaderComponent,
+  ProgressBarComponent,
 } from './components';
 import {
   DateWrapperPipe,
   FormatNumberPipe,
-  GroupByPipe,
   LongDateAndTimePipe,
   LongDatePipe,
   MonthDatePipe,
   RemoveWhiteSpacePipe,
   SafeHtmlPipe,
   ShortDatePipe,
-  SortByPipe,
   TransformToCssBgPipe,
 } from './pipes';
 import {
@@ -36,13 +35,11 @@ import {
     ClickOutsideDirective,
     DateWrapperPipe,
     FormatNumberPipe,
-    GroupByPipe,
     LongDateAndTimePipe,
     LongDatePipe,
     MonthDatePipe,
     SafeHtmlPipe,
     ShortDatePipe,
-    SortByPipe,
     TransformToCssBgPipe,
     PageHeaderComponent,
     RemoveWhiteSpacePipe,
@@ -52,13 +49,11 @@ import {
     ClickOutsideDirective,
     DateWrapperPipe,
     FormatNumberPipe,
-    GroupByPipe,
     LongDateAndTimePipe,
     LongDatePipe,
     MonthDatePipe,
     SafeHtmlPipe,
     ShortDatePipe,
-    SortByPipe,
     TransformToCssBgPipe,
     PageHeaderComponent,
     RemoveWhiteSpacePipe,
@@ -75,13 +70,11 @@ export class SharedModule {
       providers: [
         DateWrapperPipe,
         FormatNumberPipe,
-        GroupByPipe,
         LongDateAndTimePipe,
         LongDatePipe,
         MonthDatePipe,
         SafeHtmlPipe,
         ShortDatePipe,
-        SortByPipe,
         TransformToCssBgPipe,
       ],
     };

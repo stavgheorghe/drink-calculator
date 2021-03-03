@@ -28,6 +28,11 @@ const routes: Routes = [
     loadChildren: () => import('./add-new-alcohol-type/add-new-alcohol-type.module').then(m => m.AddNewAlcoholTypePageModule),
     canLoad: [PlatformGuardService],
   },
+  {
+    path: 'drink-session',
+    loadChildren: () => import('./drink-session/drink-session.module').then( m => m.DrinkSessionModule),
+    canLoad: [PlatformGuardService],
+  },
 ];
 
 @NgModule({

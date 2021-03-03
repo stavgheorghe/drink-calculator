@@ -1,9 +1,10 @@
 import { from, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { SessionResult } from '../structures';
-import { map } from 'rxjs/operators';
+
+import { SessionResult } from 'app/structures';
 
 
 @Injectable()
